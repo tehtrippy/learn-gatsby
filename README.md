@@ -11,7 +11,7 @@
 - [x] Basic GraphQL Query
 - [x] creagePages
 - [x] Template Component
-- [x] Navigate to Markdown (/blog/:id)
+- [x] Markdown List and Navigate (/blog/:id)
 ## TODO
 
 - [] i18n
