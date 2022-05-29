@@ -1,4 +1,3 @@
-import { PageProps } from 'gatsby';
 import React from 'react';
 import Navbar from './Navbar';
 

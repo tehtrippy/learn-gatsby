@@ -5,15 +5,16 @@ export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
   actions,
 }) => {
-  const { errors, data } = await graphql(`
+  const markdownEn = await graphql(`
     query {
-      allMarkdownRemark {
+      allFile(filter: { sourceInstanceName: { eq: "markdown-en" } }) {
         edges {
           node {
-            id
-            html
-            frontmatter {
-              title
+            childMarkdownRemark {
+              id
+              frontmatter {
+                slug
+              }
             }
           }
         }
@@ -21,16 +22,45 @@ export const createPages: GatsbyNode['createPages'] = async ({
     }
   `);
 
-  if (errors) return Promise.reject(errors);
+  const markdownKo = await graphql(`
+    query {
+      allFile(filter: { sourceInstanceName: { eq: "markdown-ko" } }) {
+        edges {
+          node {
+            childMarkdownRemark {
+              id
+              frontmatter {
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
 
-  const { allMarkdownRemark }: any = data;
+  if (markdownEn.errors || markdownKo.errors)
+    return Promise.reject(markdownEn.errors || markdownKo.errors);
 
-  allMarkdownRemark.edges.forEach(({ node }: any) => {
+  const { allFile: allMarkdownEn }: any = markdownEn.data;
+  const { allFile: allMarkdownKo }: any = markdownKo.data;
+
+  allMarkdownEn.edges.forEach(({ node }: any) => {
     actions.createPage({
-      path: `/blog/${node.id}`,
-      component: resolve('src', 'templates', 'Blog.tsx'),
+      path: `/en/blog/${node.childMarkdownRemark.frontmatter.slug}`,
+      component: resolve('src', 'templates', 'blog.tsx'),
       context: {
-        id: node.id,
+        id: node.childMarkdownRemark.id,
+      },
+    });
+  });
+
+  allMarkdownKo.edges.forEach(({ node }: any) => {
+    actions.createPage({
+      path: `/ko/blog/${node.childMarkdownRemark.frontmatter.slug}`,
+      component: resolve('src', 'templates', 'blog.tsx'),
+      context: {
+        id: node.childMarkdownRemark.id,
       },
     });
   });
