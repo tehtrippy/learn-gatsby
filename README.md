@@ -12,6 +12,5 @@
 - [x] creagePages
 - [x] Template Component
 - [x] Markdown List and Navigate (/blog/:id)
+- [x] i18n
 ## TODO
-
-- [] i18n
