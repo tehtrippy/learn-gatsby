@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_gatsby_workshop=self.webpackChunkmy_gatsby_workshop||[]).push([[49],{5666:function(e,t,s){s.r(t);var a=s(7294),n=s(4058);t.default=function(){var e=(0,n.useIntl)();return a.createElement("div",null,a.createElement("span",{className:"font-semibold text-red-500"},e.formatMessage({id:"description"})))}}}]);
+//# sourceMappingURL=component---src-pages-about-tsx-ca3fe05eae65be0e6d18.js.map
