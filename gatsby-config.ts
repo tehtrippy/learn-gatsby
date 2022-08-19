@@ -1,26 +1,27 @@
-import type { GatsbyConfig } from 'gatsby';
-import { resolve } from 'path';
+import type { GatsbyConfig } from "gatsby";
+import { resolve } from "path";
 
 const config: GatsbyConfig = {
+  pathPrefix: "/learn-gatsby",
   siteMetadata: {
     title: `my-gatsby-workshop`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
-    'gatsby-plugin-postcss',
-    'gatsby-transformer-remark',
+    "gatsby-plugin-postcss",
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'markdown-en',
-        path: resolve('markdown-en'),
+        name: "markdown-en",
+        path: resolve("markdown-en"),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'markdown-ko',
-        path: resolve('markdown-ko'),
+        name: "markdown-ko",
+        path: resolve("markdown-ko"),
       },
     },
     {
