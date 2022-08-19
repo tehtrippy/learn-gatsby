@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_gatsby_workshop=self.webpackChunkmy_gatsby_workshop||[]).push([[691],{6854:function(e,t,l){l.r(t);var n=l(7294),o=l(4058);t.default=function(){var e=(0,o.useIntl)();return console.log("intl: ",e.locale),n.createElement("div",null,n.createElement("p",{className:"font-semibold text-red-500"},e.formatMessage({id:"title"})),n.createElement("p",{onClick:function(){return(0,o.navigate)("/blog/hello-world")}},"Markdown LEARNING"))}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-861da83fd698257effc1.js.map
